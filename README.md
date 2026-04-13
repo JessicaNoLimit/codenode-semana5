@@ -1,5 +1,11 @@
 # CodeNode – Semana 5 🚀
 
+## 🌐 Demo
+
+Proyecto desplegado en Netlify:
+
+https://69dd7dbf7e17a100b06ac527--codenode-semana5.netlify.app/
+
 ## Descripción
 
 En esta práctica he creado un portfolio básico utilizando Astro.

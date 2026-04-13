@@ -6,48 +6,85 @@ Proyecto desplegado en Netlify:
 
 https://69dd7dbf7e17a100b06ac527--codenode-semana5.netlify.app/
 
-## Descripción
+---
 
-En esta práctica he creado un portfolio básico utilizando Astro.
+## 🧾 Descripción
 
-El proyecto está compuesto por varias páginas sencillas conectadas entre sí mediante navegación interna. La idea ha sido construir una pequeña web personal con una presentación inicial, una sección sobre mí y una página de proyectos generada a partir de un array de objetos.
+En esta práctica he desarrollado un portfolio básico utilizando Astro.
 
-## Apartados incluidos
+El proyecto está estructurado en varias páginas conectadas entre sí mediante navegación interna. Incluye una presentación personal, una sección "Sobre mí" en formato Markdown y un listado de proyectos generado dinámicamente a partir de datos reutilizables.
 
-- **Inicio**: pequeña presentación personal
-- **Sobre mí**: descripción breve y stack tecnológico
+Además, se ha implementado una estructura más modular mediante componentes y rutas dinámicas para mejorar la organización del código.
+
+---
+
+## 🧩 Apartados incluidos
+
+- **Inicio**: presentación personal breve
+- **Sobre mí**: contenido en Markdown con información personal y stack tecnológico
 - **Proyectos**: listado dinámico de proyectos ficticios
+- **Detalle de proyecto**: página individual generada dinámicamente para cada proyecto
 
-## Tecnologías utilizadas
+---
+
+## 🛠️ Tecnologías utilizadas
 
 - Astro
 - HTML
 - CSS
 - JavaScript
 
-## Objetivos de la práctica
+---
+
+## 🏗️ Estructura del proyecto
+
+- `src/pages/` → páginas principales del sitio
+- `src/pages/proyectos/[slug].astro` → rutas dinámicas de detalle
+- `src/components/ProjectCard.astro` → componente reutilizable para mostrar proyectos
+- `src/data/proyectos.js` → datos centralizados de los proyectos
+- `src/layouts/BaseLayout.astro` → layout base para páginas Markdown
+- `src/styles/global.css` → estilos globales
+
+---
+
+## 🎯 Objetivos de la práctica
 
 - Aprender la estructura básica de un proyecto en Astro
-- Crear varias páginas dentro de `src/pages`
-- Usar navegación entre páginas
+- Crear múltiples páginas dentro de `src/pages`
+- Implementar navegación entre páginas
 - Renderizar contenido dinámico con `map()`
-- Mejorar la presentación visual con estilos CSS
+- Separar datos en archivos reutilizables
+- Crear componentes reutilizables con props
+- Implementar rutas dinámicas con `[slug]`
+- Integrar Markdown dentro del proyecto
 
-## Aprendizaje
+---
 
-Esta práctica me ha servido para entender mejor cómo funciona Astro a nivel de estructura y rutas.
+## 💡 Aprendizaje
 
-También me ha ayudado a ver cómo se pueden mezclar HTML, CSS y JavaScript dentro de un proyecto sencillo, y cómo mostrar datos dinámicos de una forma clara usando arrays y `map()`.
+Esta práctica me ha permitido entender mejor cómo funciona Astro a nivel de estructura, rutas y organización del código.
 
-## Dificultades encontradas
+He aprendido a separar datos del componente visual, reutilizar lógica mediante componentes y generar páginas dinámicas a partir de un conjunto de datos.
 
-Al principio me costó un poco entender la estructura inicial del proyecto y algunos detalles de la navegación, pero una vez configuradas las páginas y el estilo general el desarrollo fue más fluido.
+También he visto cómo integrar Markdown dentro de un proyecto y aplicar un layout común para mantener la coherencia visual.
 
-## Estado del proyecto
+---
 
-Práctica completada y funcional.
+## ⚠️ Dificultades encontradas
 
-## Cómo ejecutar el proyecto
+Al principio me costó entender la estructura inicial de Astro y cómo funcionan las rutas dinámicas.
+
+También tuve que reorganizar el proyecto para separar correctamente los datos, los componentes y las páginas, lo que me ayudó a comprender mejor una estructura más profesional.
+
+---
+
+## 🚀 Estado del proyecto
+
+Práctica completada, funcional y desplegada.
+
+---
+
+## ▶️ Cómo ejecutar el proyecto
 
 ```bash
 npm install

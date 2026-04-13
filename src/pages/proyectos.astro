@@ -1,20 +1,7 @@
 ---
 import "../styles/global.css";
-
-const proyectos = [
-  {
-    titulo: "Portfolio Astro",
-    descripcion: "Portfolio personal creado con Astro, con varias páginas y navegación simple.",
-  },
-  {
-    titulo: "Web WordPress",
-    descripcion: "Página web desarrollada en WordPress con estructura personalizada y contenido dinámico.",
-  },
-  {
-    titulo: "Formulario PHP",
-    descripcion: "Formulario web con validación básica y recogida de datos utilizando PHP.",
-  },
-];
+import ProjectCard from "../components/ProjectCard.astro";
+import { proyectos } from "../data/proyectos.js";
 ---
 
 <html lang="es">
@@ -28,10 +15,12 @@ const proyectos = [
       <p class="subtitle">Listado de proyectos de ejemplo renderizados dinámicamente</p>
 
       {proyectos.map((proyecto) => (
-        <div class="card">
-          <h2>{proyecto.titulo}</h2>
-          <p>{proyecto.descripcion}</p>
-        </div>
+        <ProjectCard
+          titulo={proyecto.titulo}
+          descripcion={proyecto.descripcion}
+          tecnologias={proyecto.tecnologias}
+          slug={proyecto.slug}
+        />
       ))}
 
       <div class="back-link">

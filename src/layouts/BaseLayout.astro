@@ -10,8 +10,24 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <header>
+      <nav>
+        <a href="/" class="logo">Jesica · Dev</a>
+
+        <div class="nav-links">
+          <a href="/">Inicio</a>
+          <a href="/sobre-mi">Sobre mí</a>
+          <a href="/proyectos">Proyectos</a>
+        </div>
+      </nav>
+    </header>
+
     <main>
       <slot />
     </main>
+
+    <footer>
+      © 2026 - Portfolio Jesica Serrano
+    </footer>
   </body>
 </html>

@@ -20,14 +20,22 @@ const { proyecto } = Astro.props;
   <body>
     <main>
       <h1>{proyecto.titulo}</h1>
+
       <p>{proyecto.descripcion}</p>
 
-      <h2>Tecnologías utilizadas</h2>
-      <ul>
-        {proyecto.tecnologias.map((tecnologia) => (
-          <li>{tecnologia}</li>
-        ))}
-      </ul>
+      <p>
+        {proyecto.descripcionLarga}
+      </p>
+
+      <p><strong>Tecnologías:</strong> {proyecto.tecnologias.join(", ")}</p>
+
+      <p><strong>Estado:</strong> {proyecto.estado}</p>
+
+      {proyecto.enlace ? (
+        <a href={proyecto.enlace} target="_blank">Ver proyecto</a>
+      ) : (
+        <p>Proyecto disponible próximamente</p>
+      )}
 
       <div class="back-link">
         <a href="/proyectos">Volver a proyectos</a>

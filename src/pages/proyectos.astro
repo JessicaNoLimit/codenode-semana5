@@ -1,18 +1,17 @@
 ---
 import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import { proyectos } from "../data/proyectos.js";
 ---
 
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Proyectos | Portfolio Jesica</title>
-  </head>
-  <body>
-    <main>
+<BaseLayout title="Proyectos | Portfolio Jesica">
+  <div class="inner-wall">
+    <div class="inner-content proyectos-content">
       <h1>Proyectos</h1>
-      <p class="subtitle">Listado de proyectos de ejemplo renderizados dinámicamente</p>
+      <p class="subtitle">
+        Una selección de proyectos reales y otros en desarrollo dentro de mi portfolio.
+      </p>
 
       {proyectos.map((proyecto) => (
         <ProjectCard
@@ -20,12 +19,14 @@ import { proyectos } from "../data/proyectos.js";
           descripcion={proyecto.descripcion}
           tecnologias={proyecto.tecnologias}
           slug={proyecto.slug}
+          enlace={proyecto.enlace}
+          estado={proyecto.estado}
         />
       ))}
 
       <div class="back-link">
         <a href="/">Volver al inicio</a>
       </div>
-    </main>
-  </body>
-</html>
+    </div>
+  </div>
+</BaseLayout>

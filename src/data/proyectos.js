@@ -1,20 +1,34 @@
 export const proyectos = [
   {
-    slug: "portfolio-astro",
-    titulo: "Portfolio Astro",
-    descripcion: "Portfolio personal creado con Astro, con varias páginas y navegación simple.",
-    tecnologias: ["Astro", "HTML", "CSS"]
+    titulo: "Glow Up Studio",
+    descripcion:
+      "Web de estética con enfoque en negocio real y evolución a CRM de citas. Proyecto orientado a automatización, gestión de clientes y conversión.",
+    tecnologias: ["HTML", "CSS", "JavaScript"],
+    estado: "En desarrollo",
+    enlace: "https://glowupbelleza.netlify.app/"
   },
   {
-    slug: "web-wordpress",
-    titulo: "Web WordPress",
-    descripcion: "Página web desarrollada en WordPress con estructura personalizada.",
-    tecnologias: ["WordPress", "PHP"]
+    titulo: "Cielito de Aventuras",
+    descripcion:
+      "Web creativa inspirada en los juegos flash de los años 2000, enfocada en experiencia visual y narrativa interactiva.",
+    tecnologias: ["HTML", "CSS", "JavaScript"],
+    estado: "En desarrollo",
+    enlace: "https://cielito-aventuras.netlify.app/"
   },
   {
-    slug: "formulario-php",
-    titulo: "Formulario PHP",
-    descripcion: "Formulario web con validación básica utilizando PHP.",
-    tecnologias: ["PHP", "HTML", "CSS"]
+    titulo: "Proyecto final de prácticas",
+    descripcion:
+      "Aplicación web desarrollada como cierre de prácticas, centrada en resolver un caso real con estructura profesional.",
+    tecnologias: ["HTML", "CSS", "JavaScript", "Astro"],
+    estado: "En progreso",
+    enlace: ""
+  },
+  {
+    titulo: "Trabajo final · Máster en programación con IA",
+    descripcion:
+      "Proyecto enfocado en el uso de inteligencia artificial aplicada al desarrollo web, integrando automatización y análisis de datos.",
+    tecnologias: ["JavaScript", "APIs", "IA"],
+    estado: "En desarrollo",
+    enlace: ""
   }
 ];

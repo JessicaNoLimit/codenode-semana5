@@ -1,22 +1,16 @@
 ---
-const { titulo, descripcion, tecnologias, slug, enlace, estado } = Astro.props;
+const { titulo, descripcion, slug, estado, imagen } = Astro.props;
 ---
 
 <div class="card">
+  {imagen && <img src={imagen} alt={titulo} class="project-image" />}
+
   <h2>{titulo}</h2>
   <p>{descripcion}</p>
-
-  <p>
-    <strong>Tecnologías:</strong> {tecnologias.join(", ")}
-  </p>
 
   <p>
     <strong>Estado:</strong> {estado}
   </p>
 
-  {enlace ? (
-    <a href={enlace} target="_blank" rel="noopener noreferrer">Ver proyecto</a>
-  ) : (
-    <p><strong>Próximamente</strong></p>
-  )}
+  <a href={`/proyectos/${slug}`}>Ver proyecto</a>
 </div>

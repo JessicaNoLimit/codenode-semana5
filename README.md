@@ -1,4 +1,4 @@
-# CodeNode – Semana 5 🚀
+# CodeNode – Semana 5 & 6 🚀
 
 ## 🌐 Demo
 
@@ -10,24 +10,26 @@ https://codenode-semana5.netlify.app/
 
 ## 🧾 Descripción
 
-En esta práctica he desarrollado un **portfolio web completo utilizando Astro**, enfocado en una estructura profesional, modular y reutilizable.
+En esta práctica he desarrollado un **portfolio web completo utilizando Astro**, siguiendo una estructura modular y orientada a un entorno profesional.
 
-El proyecto incluye varias páginas conectadas entre sí mediante navegación interna, con una identidad visual coherente y un diseño cuidado. Se ha trabajado tanto la parte técnica como la presentación, simulando un entorno real de desarrollo.
+En una segunda fase, se ha integrado **WordPress como CMS externo (Headless)** mediante su REST API, permitiendo mostrar contenido real en lugar de datos hardcodeados.
 
-Se ha implementado una arquitectura basada en componentes, separación de datos y generación dinámica de contenido, siguiendo buenas prácticas de desarrollo web moderno.
+El resultado es una aplicación que consume datos dinámicos desde un backend y genera tanto la vista de listado como páginas individuales de cada proyecto mediante rutas dinámicas.
 
 ---
 
 ## 🧩 Funcionalidades principales
 
 - Navegación entre páginas (Inicio, Sobre mí, Proyectos)
-- Renderizado dinámico de proyectos desde datos externos
+- Renderizado dinámico de proyectos desde WordPress
+- Consumo de datos mediante REST API
 - Sistema de rutas dinámicas (`[slug]`) para páginas individuales
+- Página de detalle por proyecto
 - Uso de componentes reutilizables (`ProjectCard`)
 - Layout base compartido (`BaseLayout`)
-- Integración de contenido en Markdown
 - Diseño visual consistente en todas las secciones
 - Estilos globales centralizados
+- Manejo básico de errores en la carga de datos
 
 ---
 
@@ -37,6 +39,8 @@ Se ha implementado una arquitectura basada en componentes, separación de datos 
 - HTML5
 - CSS3
 - JavaScript
+- WordPress (Headless CMS)
+- REST API
 
 ---
 
@@ -45,11 +49,15 @@ Se ha implementado una arquitectura basada en componentes, separación de datos 
 El proyecto está organizado siguiendo una estructura modular:
 
 - `src/pages/` → páginas principales del sitio
+- `src/pages/proyectos.astro` → listado de proyectos desde WordPress
 - `src/pages/proyectos/[slug].astro` → generación dinámica de páginas de detalle
-- `src/components/ProjectCard.astro` → componente reutilizable para tarjetas de proyecto
-- `src/data/proyectos.js` → fuente de datos centralizada
+- `src/components/ProjectCard.astro` → componente reutilizable para tarjetas
 - `src/layouts/BaseLayout.astro` → layout base compartido
-- `src/styles/global.css` → estilos globales y sistema visual
+- `src/styles/global.css` → estilos globales
+
+Fuente de datos:
+
+- WordPress REST API → `wp-json/wp/v2/portfolio`
 
 ---
 
@@ -57,50 +65,66 @@ El proyecto está organizado siguiendo una estructura modular:
 
 - Comprensión de la estructura de proyectos en Astro
 - Implementación de navegación entre páginas
+- Consumo de datos desde API externa
+- Integración de WordPress como CMS Headless
 - Uso de `map()` para renderizar contenido dinámico
-- Separación de lógica, datos y presentación
 - Creación de componentes reutilizables con props
 - Implementación de rutas dinámicas con `[slug]`
-- Integración de Markdown en el flujo del proyecto
+- Generación de páginas individuales a partir de datos reales
 - Mejora del diseño y coherencia visual del sitio
 
 ---
 
 ## ✨ Mejoras implementadas
 
-- Rediseño visual del portfolio con estética limpia y profesional
-- Mejora de la disposición de elementos (alineación, jerarquía visual)
-- Reutilización de estilos para botones y componentes
-- Uso de contenedores y tarjetas para mejorar la legibilidad
-- Ajustes finos de spacing, márgenes y composición
+- Integración de CMS real (WordPress)
+- Eliminación de datos hardcodeados
+- Rediseño visual del portfolio con estética más profesional
+- Mejora de tarjetas de proyecto (imagen, jerarquía, contenido)
+- Flujo completo:
+  - listado → detalle → enlace externo
 - Preparación del proyecto como base real de portfolio personal
 
 ---
 
 ## 💡 Aprendizaje
 
-Esta práctica ha supuesto un salto importante en la comprensión del desarrollo web estructurado.
+Esta práctica ha supuesto un salto importante en la comprensión del desarrollo web moderno.
 
-Se ha trabajado la separación de responsabilidades (datos, componentes, vistas), así como la reutilización de código y la generación dinámica de contenido.
+Se ha trabajado la integración entre frontend y backend mediante API, así como la separación de responsabilidades (datos, lógica y presentación).
 
-Además, se ha reforzado la importancia del diseño y la coherencia visual como parte clave de un proyecto real.
+Además, se ha reforzado la importancia de trabajar con contenido dinámico y estructuras reutilizables, acercándose a un entorno real de desarrollo.
 
 ---
 
 ## ⚠️ Dificultades encontradas
 
 - Comprensión inicial de la estructura de Astro
-- Implementación de rutas dinámicas y uso de `[slug]`
-- Gestión de datos externos y su integración en componentes
-- Ajustes de diseño (alineación, posicionamiento y estilos)
-- Problemas de tipado en datos (arrays vs strings)
+- Implementación de rutas dinámicas (`[slug]`)
+- Adaptación del proyecto de datos locales a datos externos
+- Integración de WordPress como CMS
+- Gestión de campos personalizados (ACF)
+- Ajustes de diseño y maquetación
+
+---
+
+## ⚠️ Integración con WordPress
+
+El proyecto consume datos desde un entorno local de WordPress:
+
+http://localhost/wordpress/wp-json/wp/v2/portfolio
+
+Esto permite trabajar con contenido real desde un CMS.
+
+⚠️ Nota: Al estar en entorno local, esta integración no funciona en producción sin un WordPress accesible públicamente.
 
 ---
 
 ## 🚀 Estado del proyecto
 
 ✅ Práctica completada  
-🛠️ Estructura profesional implementada  
+🛠️ Integración con CMS implementada  
+🔗 Rutas dinámicas funcionales  
 🎨 Diseño mejorado y coherente  
 
 Este proyecto sirve como base para futuros desarrollos más complejos.

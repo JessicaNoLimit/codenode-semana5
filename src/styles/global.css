@@ -70,9 +70,9 @@ nav {
 /* MAIN */
 
 main {
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
 /* TEXTOS */
@@ -151,6 +151,14 @@ li {
   backdrop-filter: blur(6px);
 }
 
+.project-image {
+  width: 100%;
+  max-width: 900px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-bottom: 20px;
+}
 /* TEXTOS AUX */
 
 .subtitle {

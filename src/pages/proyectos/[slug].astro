@@ -1,8 +1,15 @@
 ---
 import "../../styles/global.css";
-import { proyectos } from "../../data/proyectos.js";
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
+  const response = await fetch("http://localhost/wordpress/wp-json/wp/v2/portfolio");
+
+  if (!response.ok) {
+    throw new Error("No se pudieron cargar los proyectos de portfolio");
+  }
+
+  const proyectos = await response.json();
+
   return proyectos.map((proyecto) => ({
     params: { slug: proyecto.slug },
     props: { proyecto }
@@ -15,24 +22,22 @@ const { proyecto } = Astro.props;
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>{proyecto.titulo} | Portfolio Jesica</title>
+    <title>{proyecto.title.rendered} | Portfolio Jesica</title>
   </head>
   <body>
     <main>
-      <h1>{proyecto.titulo}</h1>
+      {proyecto.imagen_proyecto && (
+        <img src={proyecto.imagen_proyecto} alt={proyecto.title.rendered} class="project-image" />
+      )}
 
-      <p>{proyecto.descripcion}</p>
+      <h1>{proyecto.title.rendered}</h1>
 
-      <p>
-        {proyecto.descripcionLarga}
-      </p>
+      <p>{proyecto.descripcion_corta || "Sin descripción disponible."}</p>
 
-      <p><strong>Tecnologías:</strong> {proyecto.tecnologias.join(", ")}</p>
+      <p><strong>Estado:</strong> Publicado</p>
 
-      <p><strong>Estado:</strong> {proyecto.estado}</p>
-
-      {proyecto.enlace ? (
-        <a href={proyecto.enlace} target="_blank">Ver proyecto</a>
+      {proyecto.url_proyecto ? (
+        <a href={proyecto.url_proyecto} target="_blank" rel="noopener noreferrer">Ver proyecto</a>
       ) : (
         <p>Proyecto disponible próximamente</p>
       )}

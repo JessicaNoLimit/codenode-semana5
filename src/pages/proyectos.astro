@@ -2,7 +2,22 @@
 import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
-import { proyectos } from "../data/proyectos.js";
+
+let proyectos = [];
+let error = false;
+
+try {
+  const response = await fetch("http://localhost/wordpress/wp-json/wp/v2/portfolio");
+
+  if (!response.ok) {
+    throw new Error("No se pudieron cargar los proyectos");
+  }
+
+  proyectos = await response.json();
+} catch (err) {
+  console.error("Error al cargar proyectos desde WordPress:", err);
+  error = true;
+}
 ---
 
 <BaseLayout title="Proyectos | Portfolio Jesica">
@@ -10,19 +25,24 @@ import { proyectos } from "../data/proyectos.js";
     <div class="inner-content proyectos-content">
       <h1>Proyectos</h1>
       <p class="subtitle">
-        Una selección de proyectos reales y otros en desarrollo dentro de mi portfolio.
+        Una selección de proyectos reales.
       </p>
 
-      {proyectos.map((proyecto) => (
-        <ProjectCard
-          titulo={proyecto.titulo}
-          descripcion={proyecto.descripcion}
-          tecnologias={proyecto.tecnologias}
-          slug={proyecto.slug}
-          enlace={proyecto.enlace}
-          estado={proyecto.estado}
-        />
-      ))}
+      {error ? (
+        <p>No se pudieron cargar los proyectos desde WordPress en este momento.</p>
+      ) : proyectos.length === 0 ? (
+        <p>No hay proyectos disponibles.</p>
+      ) : (
+        proyectos.map((proyecto) => (
+<ProjectCard
+  titulo={proyecto.title.rendered}
+  descripcion={proyecto.descripcion_corta || "Sin descripción"}
+  slug={proyecto.slug}
+  estado="Publicado"
+  imagen={proyecto.imagen_proyecto || ""}
+/>
+        ))
+      )}
 
       <div class="back-link">
         <a href="/">Volver al inicio</a>
